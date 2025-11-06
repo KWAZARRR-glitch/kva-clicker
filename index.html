@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👆 ква Кликер Игра</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок игры -->
+        <header class="header">
+            <h1>🐸 kva clicker🐸😎</h1>
+            <p class="subtitle">Кликай, улучшай, становись богачом! 🏆</p>
+        </header>
+
+        <!-- Основной игровой блок -->
+        <main class="game-container">
+            <!-- Блок счета и статистики -->
+            <div class="stats-panel">
+                <div class="score-container">
+                    <div class="score-label">Ваш счет:</div>
+                    <div class="score" id="score">0</div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span>💪 Сила клика:</span>
+                        <span id="clickPower">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>🤖 Авто-кликов/сек:</span>
+                        <span id="autoClick">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>🎯 Множитель:</span>
+                        <span id="multiplier">x1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>⭐ Престиж:</span>
+                        <span id="prestigeLevel">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+            <div class="click-area">
+                <button class="click-button" id="clickButton">
+                    <span class="click-emoji">👆</span>
+                    <span class="click-text">КЛИКАЙ ЗДЕСЬ!</span>
+                    <span class="click-bonus" id="clickBonus">+1</span>
+                </button>
+                <div class="click-counter">
+                    Всего кликов: <span id="totalClicks">0</span>
+                </div>
+            </div>
+            </div>
+
+            
+            <div class="upgrades-panel">
+                <h2>🛠️ УЛУЧШЕНИЯ</h2>
+                
+                
+                <div class="upgrade-category">
+                    <h3>💪 Усилители клика</h3>
+                    <div class="upgrades-grid">
+                        <button class="upgrade-btn" id="upgrade1" onclick="buyUpgrade('click', 0)">
+                            <span class="upgrade-name">Ручка для кликов</span>
+                            <span class="upgrade-desc">+1 к силе клика</span>
+                            <span class="upgrade-cost" id="cost1">💰 10</span>
+                        </button>
+                        
+                        <button class="upgrade-btn" id="upgrade2" onclick="buyUpgrade('click', 1)">
+                            <span class="upgrade-name">Волшебная мышка</span>
+                            <span class="upgrade-desc">+5 к силе клика</span>
+                            <span class="upgrade-cost" id="cost2">💰 100</span>
+                        </button>
+                        
+                        <button class="upgrade-btn" id="upgrade3" onclick="buyUpgrade('click', 2)">
+                            <span class="upgrade-name">Квантовый кликер</span>
+                            <span class="upgrade-desc">+25 к силе клика</span>
+                            <span class="upgrade-cost" id="cost3">💰 1,000</span>
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div class="upgrade-category">
+                    <h3>🤖 Авто-кликеры</h3>
+                    <div class="upgrades-grid">
+                        <button class="upgrade-btn" id="upgrade4" onclick="buyUpgrade('auto', 0)">
+                            <span class="upgrade-name">Маленький бот</span>
+                            <span class="upgrade-desc">+1 клик/сек</span>
+                            <span class="upgrade-cost" id="cost4">💰 50</span>
+                        </button>
+                        
+                        <button class="upgrade-btn" id="upgrade5" onclick="buyUpgrade('auto', 1)">
+                            <span class="upgrade-name">Ферма кликов</span>
+                            <span class="upgrade-desc">+5 кликов/сек</span>
+                            <span class="upgrade-cost" id="cost5">💰 500</span>
+                        </button>
+                        
+                        <button class="upgrade-btn" id="upgrade6" onclick="buyUpgrade('auto', 2)">
+                            <span class="upgrade-name">ИИ Кликер 9000</span>
+                            <span class="upgrade-desc">+25 кликов/сек</span>
+                            <span class="upgrade-cost" id="cost6">💰 5,000</span>
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div class="upgrade-category">
+                    <h3>🎯 Временные бонусы</h3>
+                    <div class="upgrades-grid">
+                        <button class="upgrade-btn bonus" id="upgrade7" onclick="buyUpgrade('bonus', 0)">
+                            <span class="upgrade-name">Энергия x2</span>
+                            <span class="upgrade-desc">x2 на 30 секунд</span>
+                            <span class="upgrade-cost" id="cost7">💰 200</span>
+                        </button>
+                        
+                        <button class="upgrade-btn bonus" id="upgrade8" onclick="buyUpgrade('bonus', 1)">
+                            <span class="upgrade-name">Безумие x3</span>
+                            <span class="upgrade-desc">x3 на 20 секунд</span>
+                            <span class="upgrade-cost" id="cost8">💰 1,000</span>
+                        </button>
+                        
+                        <button class="upgrade-btn bonus" id="upgrade9" onclick="buyUpgrade('bonus', 2)">
+                            <span class="upgrade-name">БОГ x5</span>
+                            <span class="upgrade-desc">x5 на 15 секунд</span>
+                            <span class="upgrade-cost" id="cost9">💰 5,000</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="prestige-panel">
+                <h2>🌟 СИСТЕМА ПРЕСТИЖА</h2>
+                <div class="prestige-info">
+                    <p>Сбросьте прогресс и получите постоянный бонус!</p>
+                    <div class="prestige-requirements">
+                        Требуется: <span id="prestigeRequirement">1,000,000</span> очков
+                    </div>
+                    <button class="prestige-btn" id="prestigeButton" onclick="prestige()" disabled>
+                        🚀 ПРЕСТИЖ! (+10% к доходу)
+                    </button>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="prestigeProgress"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <audio id="clickSound" src="click-sound.mp3" preload="auto"></audio>
+    <script src="game.js"></script>
+</body>
+</html>

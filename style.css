@@ -1,0 +1,317 @@
+/* CSS переменные */
+:root {
+    --primary-color: #8A2BE2;
+    --secondary-color: #4B0082;
+    --accent-color: #FFD700;
+    --background-color: #1a1a2e;
+    --card-color: #16213e;
+    --text-color: #ffffff;
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка - ПРОСТАЯ ВЕРСИЯ */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+/* Основная игровая область */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Панель счета */
+.stats-panel {
+    background: var(--card-color);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.score {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 20px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Кнопка клика */
+.click-area {
+    text-align: center;
+    background: var(--card-color);
+    padding: 40px 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 500px;
+}
+
+.click-button {
+    width: 300px;
+    height: 300px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.click-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.click-button {
+    width: 300px;
+    height: 300px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.click-button:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.click-emoji {
+    font-size: 4em;
+}
+
+.click-text {
+    font-size: 1.2em;
+}
+
+.click-bonus {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.click-counter {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Улучшения */
+.upgrades-panel {
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.upgrades-panel h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.upgrade-category {
+    margin-bottom: 25px;
+}
+
+.upgrade-category h3 {
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.upgrades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.upgrade-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.upgrade-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.upgrade-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.upgrade-name {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.upgrade-desc {
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+.upgrade-cost {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Престиж */
+.prestige-panel {
+    background: var(--card-color);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.prestige-panel h2 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.prestige-btn {
+    background: var(--accent-color);
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.prestige-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.prestige-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    border-radius: 5px;
+    width: 0%;
+}
+
+/* Уведомления */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00ff88;
+    color: #000;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.notification.show {
+    display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .click-button {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .score {
+        font-size: 3em;
+    }
+    
+    .upgrades-grid {
+        grid-template-columns: 1fr;
+    }
+}
